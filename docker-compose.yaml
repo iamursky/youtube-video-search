@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  frontend:
+    image: pawxy-frontend:latest
+    build:
+      context: .
+      dockerfile: ./frontend.dockerfile
+    ports:
+      - "3002:3000"
+    environment:
+      NODE_ENV: production
+
+  backend:
+    image: pawxy-backend:latest
+    build:
+      context: .
+      dockerfile: ./backend.dockerfile
+    ports:
+      - "4002:4000"
+    environment:
+      NODE_ENV: production

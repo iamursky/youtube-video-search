@@ -1,0 +1,16 @@
+{
+  "eslint.enable": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "files.exclude": {
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.next": true,
+    "**/.turbo": true,
+    "**/dist": true,
+    "**/node_modules": true,
+    "**/out": true
+  }
+}
