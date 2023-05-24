@@ -3,7 +3,8 @@ import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { firstValueFrom } from "rxjs";
 
-import { SearchVideosDto } from "./dto/seach-videos.dto";
+import { SearchVideosDto } from "./dto/seach-videos-query.dto";
+import { SearchVideosResponseDto } from "./dto/search-videos-response.dto";
 import { Video } from "./entities/video.entity";
 import {
   YouTubeSearchResponse,
@@ -18,20 +19,32 @@ export class SearchService {
     private readonly httpService: HttpService,
   ) {}
 
-  async searchVideos(searchVideosDto: SearchVideosDto): Promise<Video[]> {
-    const searchResponse = await this.searchYouTubeVideos(searchVideosDto.q);
+  async searchVideos(searchVideosDto: SearchVideosDto): Promise<SearchVideosResponseDto> {
+    const searchResponse = await this.searchYouTubeVideos(searchVideosDto);
     const videoIds = searchResponse.items.map((item) => item.id.videoId);
 
     const listResponse = await this.listYouTubeVideos(videoIds);
-    return listResponse.items.map(this.transformResourceToVideo);
+    const videos = listResponse.items.map(this.transformResourceToVideo);
+
+    return {
+      videos,
+      nextPageToken: searchResponse.nextPageToken,
+      prevPageToken: searchResponse.prevPageToken,
+    };
   }
 
-  private async searchYouTubeVideos(searchQuery: string): Promise<YouTubeSearchResponse> {
+  private async searchYouTubeVideos(
+    searchVideosDto: SearchVideosDto,
+  ): Promise<YouTubeSearchResponse> {
     const urlSearchParams = new URLSearchParams();
     urlSearchParams.append("key", this.configService.get("GOOGLE_API_KEY"));
+    urlSearchParams.append("q", searchVideosDto.q);
     urlSearchParams.append("part", "id,snippet");
     urlSearchParams.append("type", "video");
-    urlSearchParams.append("q", searchQuery);
+
+    if (searchVideosDto.pageToken) {
+      urlSearchParams.append("pageToken", searchVideosDto.pageToken);
+    }
 
     return firstValueFrom(
       this.httpService.get<YouTubeSearchResponse>(

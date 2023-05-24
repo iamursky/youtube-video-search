@@ -27,13 +27,6 @@ export class YouTubeSearchResponse {
 
   nextPageToken: string;
   prevPageToken: string;
-  regionCode: string;
-
-  pageInfo: {
-    totalResults: number;
-    resultsPerPage: number;
-  };
-
   items: YouTubeSearchResource[];
 }
 
