@@ -34,7 +34,7 @@ importers:
     dependencies:
       '@nestjs/axios':
         specifier: 2.0.0
-        version: 2.0.0(@nestjs/common@9.4.1)(axios@1.4.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
+        version: 2.0.0(@nestjs/common@9.4.1)(axios@1.6.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
       '@nestjs/common':
         specifier: 9.4.1
         version: 9.4.1(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
@@ -51,8 +51,8 @@ importers:
         specifier: 4.17.13
         version: 4.17.13
       axios:
-        specifier: 1.4.0
-        version: 1.4.0
+        specifier: 1.6.0
+        version: 1.6.0
       class-transformer:
         specifier: ^0.5.1
         version: 0.5.1
@@ -245,7 +245,7 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /@nestjs/axios@2.0.0(@nestjs/common@9.4.1)(axios@1.4.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
+  /@nestjs/axios@2.0.0(@nestjs/common@9.4.1)(axios@1.6.0)(reflect-metadata@0.1.13)(rxjs@7.8.1):
     resolution: {integrity: sha512-F6oceoQLEn031uun8NiommeMkRIojQqVryxQy/mK7fx0CI0KbgkJL3SloCQcsOD+agoEnqKJKXZpEvL6FNswJg==}
     peerDependencies:
       '@nestjs/common': ^7.0.0 || ^8.0.0 || ^9.0.0
@@ -254,7 +254,7 @@ packages:
       rxjs: ^6.0.0 || ^7.0.0
     dependencies:
       '@nestjs/common': 9.4.1(class-transformer@0.5.1)(class-validator@0.14.0)(reflect-metadata@0.1.13)(rxjs@7.8.1)
-      axios: 1.4.0
+      axios: 1.6.0
       reflect-metadata: 0.1.13
       rxjs: 7.8.1
     dev: false
@@ -922,8 +922,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /axios@1.4.0:
-    resolution: {integrity: sha512-S4XCWMEmzvo64T9GfvQDOXgYRDJ/wsSZc7Jvdgx5u1sd0JwsuPLqb3SYmusag+edF6ziyMensPVqLTSc1PiSEA==}
+  /axios@1.6.0:
+    resolution: {integrity: sha512-EZ1DYihju9pwVB+jg67ogm+Tmqc6JmhamRN6I4Zt8DfZu5lbcQGw3ozH9lFejSJgs/ibaef3A9PMXPLeefFGJg==}
     dependencies:
       follow-redirects: 1.15.2
       form-data: 4.0.0
