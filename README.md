@@ -1,4 +1,4 @@
-# Pawxy Test Assignment
+# YouTube Video Search
 
 ## Create .env.local file
 
