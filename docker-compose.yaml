@@ -2,7 +2,7 @@ version: "3"
 
 services:
   frontend:
-    image: pawxy-frontend:latest
+    image: youtube-video-search-frontend:latest
     build:
       context: .
       dockerfile: ./frontend.dockerfile
@@ -12,7 +12,7 @@ services:
       NODE_ENV: production
 
   backend:
-    image: pawxy-backend:latest
+    image: youtube-video-search-backend:latest
     build:
       context: .
       dockerfile: ./backend.dockerfile

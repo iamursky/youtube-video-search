@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Pawxy Test Assignment",
+  title: "YouTube Video Search",
   description: "Simple video search engine",
 };
 
